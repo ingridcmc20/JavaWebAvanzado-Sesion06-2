@@ -11,35 +11,40 @@ import com.tecsup.gestion.model.User;
 @Repository
 public class HomeDAO {
 
-	private static final Logger logger 
-		= LoggerFactory.getLogger(HomeDAO.class);
-	
+	private static final Logger logger = LoggerFactory.getLogger(HomeDAO.class);
+
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-	
+
 	public User getUser(int id) {
-		
+
 		logger.info("get User ....!");
-	
+
 		// Obtener parametros
-		Object[] args =  new Object [] {id};
+		Object[] args = new Object[] { id };
 		// Definir consultar
-		String query = 
-				" SELECT employee_id, login, password, first_name, last_name, email, salary, department_id, address "
-				+ " FROM employees "
-				+ " WHERE employee_id = ? ";
-		// Hacer la consulta --  Mapper
-		User usr 
-			= (User)jdbcTemplate.queryForObject(query, args, new UserMapper());
+		String query = " SELECT employee_id, login, password, first_name, last_name, email, salary, department_id, address "
+				+ " FROM employees " + " WHERE employee_id = ? ";
+		// Hacer la consulta -- Mapper
+		User usr = (User) jdbcTemplate.queryForObject(query, args, new UserMapper());
 
 		// Retornar resultado
 		return usr;
-	
-		
-	}
-	
-	
-	
 
+	}
+
+	public User getUserByName(String first_name) {
+		logger.info("get User ....!");
+		// Obtener parametros
+		Object[] args = new Object[] { first_name };
+		// Definir consultar
+		String query = " SELECT employee_id, login, password, first_name, last_name, email, salary, department_id, address "
+				+ " FROM employees " + " WHERE first_name = ? ";
+		// Hacer la consulta -- Mapper
+		User usr = (User) jdbcTemplate.queryForObject(query, args, new UserMapper());
+
+		// Retornar resultado
+		return usr;
+	}
 
 }

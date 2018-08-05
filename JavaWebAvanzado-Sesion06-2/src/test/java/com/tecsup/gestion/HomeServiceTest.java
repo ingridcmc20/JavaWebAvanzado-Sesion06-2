@@ -1,7 +1,8 @@
-package com.tecsup.gestion.services;
+package com.tecsup.gestion;
 
 import static org.junit.Assert.fail;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -13,8 +14,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.tecsup.gestion.model.User;
+import com.tecsup.gestion.services.HomeService;
 
-import junit.framework.Assert;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextHierarchy({
@@ -53,6 +54,26 @@ public class HomeServiceTest {
 
 	}
 
+	@Test
+	public void testGetUserInfoByName() {
 
+		try {
+			//
+			
+			String I_NAME = "Ingrid" ;
+			String O_ADDRESS = "Av. Arequipa";
+			
+			User usr = homeService.findUserByName(I_NAME);	
+
+			logger.info(usr.toString());
+			
+			Assert.assertEquals(O_ADDRESS, usr.getAddress());
+			
+			
+		} catch (Exception e) {
+			fail(e.getMessage());
+		}
+
+	}
 	
 }

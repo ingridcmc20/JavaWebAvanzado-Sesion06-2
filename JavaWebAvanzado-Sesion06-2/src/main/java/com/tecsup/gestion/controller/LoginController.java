@@ -29,7 +29,7 @@ public class LoginController {
 	@Autowired
 	private SecurityService securityService;
 
-	@GetMapping("/a")
+	@GetMapping("/")
 	public ModelAndView preLogin() {
 		Credential credential = new Credential();
 		return new ModelAndView("login", "credential", credential);

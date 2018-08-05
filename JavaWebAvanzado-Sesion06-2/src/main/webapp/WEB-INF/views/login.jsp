@@ -1,6 +1,4 @@
-
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <html>
 <head>
 <title>Spring MVC CRUD</title>
@@ -24,8 +22,7 @@
 			<div class="col-md-4">
 				<h4 class="text-center">User Login</h4>
 				<hr>
-                          <spring:url value="/login " var="loginURL"/>
-				<form:form method="post" action="${loginURL}” modelAttribute="credential">
+				<form:form method="post" servletRelativeAction="/login" modelAttribute="credential">
 					<div class="form-group">
 						<label for="login">Login: </label>
 						<form:input path="login" class="form-control" />
@@ -46,4 +43,3 @@
 	</div>
 </body>
 </html>
-

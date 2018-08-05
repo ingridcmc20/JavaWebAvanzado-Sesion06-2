@@ -25,5 +25,15 @@ public class HomeService {
 
 		return usr;
 	}
+	
+	public User findUserByName(String first_name) {
+		// TODO Auto-generated method stub
+
+		logger.info("method findUserByName()");
+
+		User usr = homeDAO.getUserByName(first_name);
+
+		return usr;
+	}
 
 }
