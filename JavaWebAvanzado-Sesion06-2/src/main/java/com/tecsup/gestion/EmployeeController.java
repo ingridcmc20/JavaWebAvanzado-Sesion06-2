@@ -11,7 +11,6 @@ public class EmployeeController {
 
 	@GetMapping("/admin/menu")
 	public String menu() {
-
 		return "/admin/menu";
 	}
 
