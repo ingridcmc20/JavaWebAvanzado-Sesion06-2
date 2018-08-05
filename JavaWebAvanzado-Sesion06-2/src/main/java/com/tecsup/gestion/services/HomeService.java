@@ -11,21 +11,18 @@ import com.tecsup.gestion.model.User;
 @Service
 public class HomeService {
 
-	
-	private static final Logger logger 
-			= LoggerFactory.getLogger(HomeService.class);
-	
+	private static final Logger logger = LoggerFactory.getLogger(HomeService.class);
+
 	@Autowired
 	HomeDAO homeDAO;
-	
-	
+
 	public User findUserById(int id) {
 		// TODO Auto-generated method stub
-		
+
 		logger.info("method findUserById()");
-		
-		User usr =  homeDAO.getUser(id);
-		
+
+		User usr = homeDAO.getUser(id);
+
 		return usr;
 	}
 

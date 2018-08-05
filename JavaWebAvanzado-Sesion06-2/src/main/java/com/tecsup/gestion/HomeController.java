@@ -33,9 +33,9 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		int id = 100;
+		int id = 200;
 		User usr = homeService.findUserById(id);
-		
+		logger.info(usr.toString());
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
