@@ -47,4 +47,17 @@ public class HomeDAO {
 		return usr;
 	}
 
+	public User getUserByUserYPass(String username, String password) {
+		logger.info("get getUserByName ....!");
+		// Obtener parametros
+		Object[] args = new Object[] { username, password };
+		// Definir consultar
+		String query = " SELECT employee_id, login, password, first_name, last_name, email, salary, department_id, address "
+				+ " FROM employees " + " WHERE login=? AND password=? ";
+		// Hacer la consulta -- Mapper
+		User usr = (User) jdbcTemplate.queryForObject(query, args, new UserMapper());
+
+		// Retornar resultado
+		return usr;
+	}
 }
