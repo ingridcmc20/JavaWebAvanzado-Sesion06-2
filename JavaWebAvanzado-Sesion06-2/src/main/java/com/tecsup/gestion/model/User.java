@@ -7,6 +7,7 @@ public class User {
 	private String password;
 	private String Firstname;
 	private String Lastname;
+	private String address;
 	private int salary;
 
 	public int getEmployeeId() {
@@ -57,10 +58,19 @@ public class User {
 		this.salary = salary;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
 		return "User [employeeId=" + employeeId + ", login=" + login + ", password=" + password + ", Firstname="
-				+ Firstname + ", Lastname=" + Lastname + ", salary=" + salary + "]";
+				+ Firstname + ", Lastname=" + Lastname + ", address=" + address + ", salary=" + salary + "]";
 	}
+
 	
 }

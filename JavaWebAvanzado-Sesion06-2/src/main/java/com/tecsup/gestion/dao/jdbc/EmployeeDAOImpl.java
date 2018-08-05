@@ -28,7 +28,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			throw new LoginException("Login and password incorrect");
 		}
 
-		String query = "SELECT employee_id,login,password,first_name,last_name,email,salary,department_id  "
+		String query = "SELECT employee_id,login,password,first_name,last_name,email,salary,department_id, address  "
 				+ " FROM employees WHERE login=? AND password=?";
 
 		Object[] params = new Object[] { login, pwd };

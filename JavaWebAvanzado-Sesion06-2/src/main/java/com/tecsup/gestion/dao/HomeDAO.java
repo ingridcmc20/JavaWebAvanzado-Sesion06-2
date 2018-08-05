@@ -25,7 +25,7 @@ public class HomeDAO {
 		Object[] args =  new Object [] {id};
 		// Definir consultar
 		String query = 
-				" SELECT employee_id, login, password, first_name, last_name, email, salary, department_id "
+				" SELECT employee_id, login, password, first_name, last_name, email, salary, department_id, address "
 				+ " FROM employees "
 				+ " WHERE employee_id = ? ";
 		// Hacer la consulta --  Mapper
