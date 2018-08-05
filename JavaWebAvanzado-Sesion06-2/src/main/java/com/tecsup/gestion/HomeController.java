@@ -12,8 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.tecsup.gestion.services.HomeServices;
-import com.tecsup.gestion.services.SecurityService;
+import com.tecsup.gestion.model.User;
+import com.tecsup.gestion.services.HomeService;
 
 /**
  * Handles requests for the application home page.
@@ -22,16 +22,20 @@ import com.tecsup.gestion.services.SecurityService;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 	@Autowired
-	private HomeServices homeServices;
+	private HomeService homeService;
+	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		String id="imendoza";
-		homeServices.doSomething(id);
+		
+		int id = 100;
+		User usr = homeService.findUserById(id);
+		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
