@@ -15,7 +15,7 @@ public class HomeDAO {
 	public User getUser(int id) {
 		// TODO Auto-generated method stub
 		
-		logger.info("get User ....!");
+		logger.info("get User ....!" + id);
 		
 		User usr = new User();
 		
